@@ -10,11 +10,12 @@ class Auth extends React.Component {
         return(
             <div>
                 <Login />
-                
-                <Logout />
 
+                <br />
                 <Register />
 
+                <br />
+                <Logout />
             </div>
         )
     }

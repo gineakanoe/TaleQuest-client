@@ -13,27 +13,38 @@ class Login extends React.Component<{}, LoginState> {
         this.state = {
             username: '',
             password: '',
+            sessionToken: '',
         }
     }
 
     handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
-
-        //? Do I need this?
-        // const reqBody = {                
-        //     username: username,
-        //     password: password,
-        // }
-
-
-        fetch(`https://localhost:4000/user/login`, {method: 'POST'})
+        fetch(`https://localhost:4000/user/login`, {
+            method: 'POST',
+            body: JSON.stringify({
+                user: {
+                    firstName: '',
+                    lastName: '',
+                    username: '',
+                    email: '',
+                    password: '',
+                }
+            }),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             this.setState({
                 username: data.username,
                 password: data.pasword,
                 sessionToken: data.sessionToken,
             })
+            let token = data.sessionToken;
+            localStorage.setItem('sessionToken', token);
+            // tokenChecker();
         })
         .catch((err) => console.log(`[Error]: ${err}`))
     }

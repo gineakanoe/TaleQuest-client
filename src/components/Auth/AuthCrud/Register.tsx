@@ -6,6 +6,7 @@ type RegisterState = {
     username: string,
     email: string,
     password: string,
+    sessionToken?: string,
 }
 
 class Register extends React.Component<{}, RegisterState> {
@@ -18,22 +19,39 @@ class Register extends React.Component<{}, RegisterState> {
             username: '',
             email: '',
             password: '',
+            sessionToken: '',
         }
     }
 
     handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
 
-        fetch(`http://localhost:4000/user/register`, {method: 'POST'})
-        .then(res => res.json())
-        .then(res => {
-            this.setState({
-                firstName: '',
-                lastName: '',
-                username: '',
-                email: '',
-                password: '',
+        fetch(`http://localhost:4000/user/register`, {
+            method: 'POST',
+            body: JSON.stringify({
+                user: {
+                    username: '',
+                    password: '',
+                }
+            }),
+            headers: new Headers({
+                'Content-Type': 'application/json'
             })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            this.setState({
+                firstName: data.firstName,
+                lastName: data.lastName,
+                username: data.username,
+                email: data.email,
+                password: data.pasword,
+                sessionToken: data.sessionToken,
+            })
+            let token = data.sessionToken;
+            localStorage.setItem('sessionToken', token);
+            // tokenChecker();
         })
         .catch((err) => console.log(`[Error}: ${err}]`))
     }

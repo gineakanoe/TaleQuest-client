@@ -42,7 +42,7 @@ class Login extends React.Component<{}, LoginState> {
         return(
             <div>
                 <form>
-                    <h1>Login</h1>
+                    <h2>Login</h2>
                     <label htmlFor='username'>Username:</label>
                     <br/>
                     <input type='type' id='username' value={this.state.username} onChange={(e) => (e.target.value)} />  

@@ -5,7 +5,7 @@ import DeleteQuest from './QuestsCrud/DeleteQuest';
 import GetQuest from './QuestsCrud/GetQuest';
 import UpdateQuest from './QuestsCrud/UpdateQuest';
 
-class Quests extends React.Component    {
+class Quests extends React.Component {
 
     render() {
         return(

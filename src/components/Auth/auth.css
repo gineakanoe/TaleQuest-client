@@ -1,0 +1,33 @@
+#logout {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: navy;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#logout:hover {
+    cursor: pointer;
+    color: orchid;
+}
+
+#login, #register {
+    background-color: palegreen;
+    border: 2px solid navy;
+    border-radius: 15px;
+    color: navy;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 15px;
+}
+
+#login:hover, #register:hover {
+    cursor: pointer;
+    color: orchid;
+    border: 2px solid orchid;
+    background-color: transparent;
+    
+}

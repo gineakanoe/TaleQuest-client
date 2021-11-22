@@ -51,7 +51,7 @@ class Login extends React.Component<{}, LoginState> {
                     <br/>
                     <input type='password' id='password' value={this.state.password} onChange={(e) => (e.target.value)} />
                     <br/>
-                    <button type='submit' onClick={this.handleSubmit}>Submit</button>
+                    <button type='submit' id='login' onClick={this.handleSubmit}>Login</button>
                 </form>
             </div>
         )

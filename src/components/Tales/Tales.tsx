@@ -10,7 +10,7 @@ class Tales extends React.Component {
     render() {
         return(
             <div>
-                Hello World!
+                Hello World of Tales!
 
                 <CreateTale />
 

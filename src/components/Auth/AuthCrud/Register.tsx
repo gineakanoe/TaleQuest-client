@@ -45,23 +45,23 @@ class Register extends React.Component<{}, RegisterState> {
                     <h2>Register</h2>
                     <label htmlFor='firstName'>First Name:</label>
                     <br/>
-                    <input type='type' id='firstName' value={this.state.firstName} onChange={(e) => (e.target.value)} />  
+                    <input type='type' id='firstName' value={this.state.firstName} onChange={(e) => this.setState({firstName: e.target.value})} />  
                     <br/>
                     <label htmlFor='lastName'>Last Name:</label>
                     <br/>
-                    <input type='type' id='lastName' value={this.state.lastName} onChange={(e) => (e.target.value)} />  
+                    <input type='type' id='lastName' value={this.state.lastName} onChange={(e) => this.setState({lastName: e.target.value})} />  
                     <br/>
                     <label htmlFor='username'>Username:</label>
                     <br/>
-                    <input type='type' id='username' value={this.state.username} onChange={(e) => (e.target.value)} />  
+                    <input type='type' id='username' value={this.state.username} onChange={(e) => this.setState({username: e.target.value})} />  
                     <br/>
                     <label htmlFor='email'>Email:</label>
                     <br/>
-                    <input type='email' id='email' value={this.state.email} onChange={(e) => (e.target.value)} />  
+                    <input type='email' id='email' value={this.state.email} onChange={(e) => this.setState({email: e.target.value})} />  
                     <br/>
                     <label htmlFor='password'>Password:</label>
                     <br/>
-                    <input type='password' id='password' value={this.state.password} onChange={(e) => (e.target.value)} />
+                    <input type='password' id='password' value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} />
                     <br/>
                     <button type='submit' id='register' onClick={this.handleSubmit}>Register</button>
                 </form>

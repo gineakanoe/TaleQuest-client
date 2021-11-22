@@ -28,11 +28,11 @@ class Login extends React.Component<{}, LoginState> {
 
         fetch(`https://localhost:4000/user/login`, {method: 'POST'})
         .then(res => res.json())
-        .then(res => {
+        .then(data => {
             this.setState({
-                username: '',
-                password: '',
-                sessionToken: '',
+                username: data.username,
+                password: data.pasword,
+                sessionToken: data.sessionToken,
             })
         })
         .catch((err) => console.log(`[Error]: ${err}`))
@@ -45,11 +45,11 @@ class Login extends React.Component<{}, LoginState> {
                     <h2>Login</h2>
                     <label htmlFor='username'>Username:</label>
                     <br/>
-                    <input type='type' id='username' value={this.state.username} onChange={(e) => (e.target.value)} />  
+                    <input type='type' id='username' value={this.state.username} onChange={(e) => this.setState({username: e.target.value})} />  
                     <br/>
                     <label htmlFor='password'>Password:</label>
                     <br/>
-                    <input type='password' id='password' value={this.state.password} onChange={(e) => (e.target.value)} />
+                    <input type='password' id='password' value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} />
                     <br/>
                     <button type='submit' id='login' onClick={this.handleSubmit}>Login</button>
                 </form>

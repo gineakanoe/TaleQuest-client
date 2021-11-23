@@ -6,6 +6,7 @@ type RegisterState = {
     username: string,
     email: string,
     password: string,
+    confirmPassword: string,        //! Don't forget to add!
     sessionToken?: string,
 }
 
@@ -19,19 +20,25 @@ class Register extends React.Component<{}, RegisterState> {
             username: '',
             email: '',
             password: '',
+            confirmPassword: '',        //! Don't forget to add!
             sessionToken: '',
         }
     }
 
     handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
+        console.log('Register Submitted!')
 
         fetch(`http://localhost:4000/user/register`, {
             method: 'POST',
             body: JSON.stringify({
                 user: {
+                    firstName: '',
+                    lastName: '',
                     username: '',
+                    email: '',
                     password: '',
+                    confirmPassword: '',          //! Don't forget to add!  
                 }
             }),
             headers: new Headers({
@@ -47,6 +54,7 @@ class Register extends React.Component<{}, RegisterState> {
                 username: data.username,
                 email: data.email,
                 password: data.pasword,
+                confirmPassword: data.confirmPassword,              //! Don't forget to add!
                 sessionToken: data.sessionToken,
             })
             let token = data.sessionToken;
@@ -80,6 +88,10 @@ class Register extends React.Component<{}, RegisterState> {
                     <label htmlFor='password'>Password:</label>
                     <br/>
                     <input type='password' id='password' value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} />
+                    <br/>
+                    <label htmlFor='confirmPassword'>Confirm Password:</label>
+                    <br/>
+                    <input type='password' id='confirmPassword' value={this.state.confirmPassword} onChange={(e) => this.setState({confirmPassword: e.target.value})} />
                     <br/>
                     <button type='submit' id='register' onClick={this.handleSubmit}>Register</button>
                 </form>

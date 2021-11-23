@@ -19,6 +19,8 @@ class Login extends React.Component<{}, LoginState> {
 
     handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
+        console.log('Login Submitted!')
+
         fetch(`https://localhost:4000/user/login`, {
             method: 'POST',
             body: JSON.stringify({

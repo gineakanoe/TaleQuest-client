@@ -7,12 +7,18 @@ type RegisterState = {
     email: string,
     password: string,
     confirmPassword: string,        //! Don't forget to add!
-    sessionToken?: string,
+    role: string,
 }
 
-class Register extends React.Component<{}, RegisterState> {
+type SessionProps = {
+    updateLocalStorage: (newToken: string) => void,
+    updateRole: (role: string) => void,
+    clearLocalStorage: () => void,
+}
 
-    constructor(props: {}) {
+class Register extends React.Component<SessionProps, RegisterState> {
+
+    constructor(props: SessionProps) {
         super(props)
         this.state = {
             firstName: '',
@@ -21,7 +27,7 @@ class Register extends React.Component<{}, RegisterState> {
             email: '',
             password: '',
             confirmPassword: '',        //! Don't forget to add!
-            sessionToken: '',
+            role: 'User',
         }
     }
 
@@ -33,12 +39,13 @@ class Register extends React.Component<{}, RegisterState> {
             method: 'POST',
             body: JSON.stringify({
                 user: {
-                    firstName: '',
-                    lastName: '',
-                    username: '',
-                    email: '',
-                    password: '',
-                    confirmPassword: '',          //! Don't forget to add!  
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    username: this.state.username,
+                    email: this.state.email,
+                    password: this.state.password,
+                    confirmPassword: this.state.confirmPassword,          //! Don't forget to add!  
+                    role: this.state.role,
                 }
             }),
             headers: new Headers({
@@ -48,20 +55,16 @@ class Register extends React.Component<{}, RegisterState> {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            this.setState({
-                firstName: data.firstName,
-                lastName: data.lastName,
-                username: data.username,
-                email: data.email,
-                password: data.pasword,
-                confirmPassword: data.confirmPassword,              //! Don't forget to add!
-                sessionToken: data.sessionToken,
-            })
-            let token = data.sessionToken;
-            localStorage.setItem('sessionToken', token);
-            // tokenChecker();
+            this.props.updateLocalStorage(data.sessionToken)
+            
+            if(data.user.role !== undefined) {
+                this.props.updateRole(data.user.role)
+            }
         })
-        .catch((err) => console.log(`[Error}: ${err}]`))
+        .catch((err) => {
+            console.log(`[Error}: ${err}]`);
+            this.props.clearLocalStorage();
+        })
     }
 
     render() {

@@ -17,49 +17,64 @@ function HeadingWithContent({children}: {children: ReactNode}): ReactElement {
 }
 
 type TokenState = {
-    sessionToken: string,
-    user: {},
+    sessionToken: string | undefined | null,
+    role: string | null,
 }
 
 class MainApp extends React.Component<{}, TokenState> {
 
-    constructor(props: {}) {
+    constructor(props: TokenState) {
         super(props)
         this.state = {
-            sessionToken: '',
-            user: {},
+            sessionToken: undefined,
+            role: '',
         }
-        this.updateToken = this.updateToken.bind(this);
-        this.setUser = this.setUser.bind(this);
-        this.clearToken = this.clearToken.bind(this);
+        this.updateLocalStorage = this.updateLocalStorage.bind(this);
     }
     
-    updateToken(newToken: string) {
+    componentDidMount = (() => {
+        if(localStorage.getItem('token')) {
+            this.setState({
+                sessionToken: localStorage.getItem('token'),
+                role: localStorage.getItem('role'),
+
+            })
+        }
+    })    
+
+    updateLocalStorage = (newToken: string) => {    
         localStorage.setItem('token', newToken);
-        this.setState({sessionToken: newToken})
+        this.setState({
+            sessionToken: newToken,
+        })
     }
 
-    setUser(userRole: string) {
-        localStorage.setItem('userRole', userRole);
-        this.setState({user: userRole})
+    updateRole = (role: string) => {
+        localStorage.setItem('role', role);
+        this.setState({role: role})
     }
 
-    clearToken() {
+    clearLocalStorage = () => {
         localStorage.clear();
-        this.setState({sessionToken: ''})
+        this.setState({
+            sessionToken: undefined,
+            role: '',
+        })
     }
     
     // viewConductor = () => {
-    //     return (sessionToken !== undefined ? <Sidebar sessionToken={this.sessionToken} /> : <Auth updateLocalStorage={updateLocalStorage} />) ;
-    // };
+    //     return(
+    //         this.state.sessionToken !== undefined ? 
+    //         <Sidebar userRole={this.state.role} sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage} /> : 
+    //         <Auth updateRole={this.updateRole} updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage} />
+    //     )
+    // }
 
 
 App: React.FunctionComponent = () => {
     //protected views -->
     return (
         <div className="App">
-            {/* <Auth updateToken={this.updateToken} setUser={this.setUser} /> */}
-            <Auth />
             <MainApp />
 
             <Header />
@@ -69,6 +84,7 @@ App: React.FunctionComponent = () => {
 
             <Router>
                 <Sidebar />
+                {/* {this.viewConductor()} */}
             </Router>
 
             <Footer />

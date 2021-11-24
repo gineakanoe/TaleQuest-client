@@ -3,17 +3,23 @@ import React from 'react';
 type LoginState = {
     username: string,
     password: string,
-    sessionToken?: string,
+    // role: string,
 }
 
-class Login extends React.Component<{}, LoginState> {
+type SessionProps = {
+    updateLocalStorage: (newToken: string) => void,
+    // updateRole: (role: string) => void,
+    clearLocalStorage: () => void,
+}
 
-    constructor(props: {}) {
+class Login extends React.Component<SessionProps, LoginState> {
+
+    constructor(props: SessionProps) {
         super(props)
         this.state = {
             username: '',
             password: '',
-            sessionToken: '',
+            // role: 'User',
         }
     }
 
@@ -25,11 +31,9 @@ class Login extends React.Component<{}, LoginState> {
             method: 'POST',
             body: JSON.stringify({
                 user: {
-                    firstName: '',
-                    lastName: '',
                     username: '',
-                    email: '',
                     password: '',
+                    // role: this.state.role,
                 }
             }),
             headers: new Headers({
@@ -39,16 +43,17 @@ class Login extends React.Component<{}, LoginState> {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            this.setState({
-                username: data.username,
-                password: data.pasword,
-                sessionToken: data.sessionToken,
-            })
-            let token = data.sessionToken;
-            localStorage.setItem('sessionToken', token);
-            // tokenChecker();
+            this.props.updateLocalStorage(data.sessionToken)
+            
+            // if(data.user.role !== undefined) {
+            //     this.props.updateRole(data.user.role)
+            // }
+
         })
-        .catch((err) => console.log(`[Error]: ${err}`))
+        .catch((err) =>{
+            console.log(`[Error]: ${err}`);
+            this.props.clearLocalStorage();
+        })
     }
 
     render() {

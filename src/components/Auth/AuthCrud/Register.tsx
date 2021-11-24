@@ -7,12 +7,12 @@ type RegisterState = {
     email: string,
     password: string,
     confirmPassword: string,        //! Don't forget to add!
-    role: string,
+    // role: string,
 }
 
 type SessionProps = {
     updateLocalStorage: (newToken: string) => void,
-    updateRole: (role: string) => void,
+    // updateRole: (role: string) => void,
     clearLocalStorage: () => void,
 }
 
@@ -27,7 +27,7 @@ class Register extends React.Component<SessionProps, RegisterState> {
             email: '',
             password: '',
             confirmPassword: '',        //! Don't forget to add!
-            role: 'User',
+            // role: 'User',
         }
     }
 
@@ -45,7 +45,7 @@ class Register extends React.Component<SessionProps, RegisterState> {
                     email: this.state.email,
                     password: this.state.password,
                     confirmPassword: this.state.confirmPassword,          //! Don't forget to add!  
-                    role: this.state.role,
+                    // role: this.state.role,
                 }
             }),
             headers: new Headers({
@@ -57,9 +57,9 @@ class Register extends React.Component<SessionProps, RegisterState> {
             console.log(data);
             this.props.updateLocalStorage(data.sessionToken)
             
-            if(data.user.role !== undefined) {
-                this.props.updateRole(data.user.role)
-            }
+            // if(data.user.role !== undefined) {
+            //     this.props.updateRole(data.user.role)
+            // }
         })
         .catch((err) => {
             console.log(`[Error}: ${err}]`);

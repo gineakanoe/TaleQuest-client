@@ -4,18 +4,25 @@ import Login from './AuthCrud/Login';
 import Logout from './AuthCrud/Logout';
 import Register from './AuthCrud/Register';
 
-class Auth extends React.Component {
+type SessionProps = {
+    updateLocalStorage: (newToken: string) => void,
+    // updateRole: (role: string) => void,
+    clearLocalStorage: () => void,
+}
+
+class Auth extends React.Component<SessionProps> {
+
 
     render() {
         return(
             <div>
-                <Login />
+                <Login /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />
 
                 <br />
-                <Register />
+                <Register /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />
 
                 <br />
-                <Logout />
+                <Logout clearLocalStorage={this.props.clearLocalStorage} />
             </div>
         )
     }

@@ -1,11 +1,22 @@
 import React from 'react';
 
-class Logout extends React.Component {
+type SessionProps = {
+    clearLocalStorage: () => void,
+}
+
+class Logout extends React.Component<SessionProps> {
+
+    constructor(props: SessionProps) {
+        super(props)
+        this.state = {
+
+        }
+    }
 
     handleSubmit = (e: React.MouseEvent) => {
-        localStorage.setItem('sessionToken', '');
-        console.log(`sessionToken --> ${localStorage.sessionToken}`);
-        // tokenChecker();
+        console.log('Logout Called');
+        this.props.clearLocalStorage();
+       
     }
 
     render() {

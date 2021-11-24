@@ -3,7 +3,7 @@ import {Route, Link, Routes} from 'react-router-dom';
 import './site.css';
 import Quests from "../Quests/Quests";
 import Tales from "../Tales/Tales";
-import Auth from '../Auth/Auth';
+// import Auth from '../Auth/Auth';
 
 const Sidebar: React.FunctionComponent = () => {
 
@@ -18,7 +18,7 @@ const Sidebar: React.FunctionComponent = () => {
             </div>
             <div>
                 <Routes>
-                    <Route path='/auth' element={<Auth />} />
+                    {/* <Route path='/auth' element={<Auth />} /> */}
                     <Route path='/tales' element={<Tales />} />
                     <Route path='/quests' element={<Quests />} />
                 </Routes>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Token } from "typescript";
 
 type TokenProps = {
     token: string | undefined | null,
@@ -28,12 +27,15 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
 
     handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
-        fetch(`https://localhost:4000/tales/create`, {
+        console.log('submitted createTale event');
+        fetch(`http://localhost:4000/tales/create`, {
             method: 'POST',
             body: JSON.stringify({
-                entry: '',
-                genre: '',
-                keywords: '',
+                tales: {
+                    entry: this.state.entry,
+                    genre: this.state.genre,
+                    keywords: this.state.keywords,
+                }
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -43,11 +45,11 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
         .then(res => res.json())
         .then((data) => {
             console.log(data);
-            this.setState({
-                entry: data.entry,
-                genre: data.genre,
-                keywords: data.keywords,
-            })
+            // this.setState({
+            //     entry: data.entry,
+            //     genre: data.genre,
+            //     keywords: data.keywords,
+            // })
         })
         .catch((err) => console.log(`[Error]: ${err}`))
     }
@@ -75,6 +77,7 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
                     <br/>
                     <button type='submit' id='createTale' onClick={this.handleSubmit}>Submit</button>
                 </form>
+                <hr />
             </div>
         )
     }

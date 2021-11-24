@@ -11,7 +11,7 @@ const Sidebar: React.FunctionComponent = () => {
         <div className='sidebar'>
             <div>
                 <ul id='sidebarUl'>
-                    <li><Link to='/auth'>Login/Register/Logout</Link></li>
+                    {/* <li><Link to='/auth'>Login/Register/Logout</Link></li> */}
                     <li><Link to='/tales'>Tales</Link></li>
                     <li><Link to='quests'>Quests</Link></li>
                 </ul>

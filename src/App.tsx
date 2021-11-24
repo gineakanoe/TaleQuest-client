@@ -5,6 +5,7 @@ import Header from './components/Site/Header';
 import Sidebar from './components/Site/Sidebar';
 import Footer from './components/Site/Footer';
 import Auth from './components/Auth/Auth';
+import Logout from './components/Auth/AuthCrud/Logout';
 // import Tales from './components/Tales/Tales';
 // import Quests from './components/Quests/Quests';
 
@@ -104,6 +105,8 @@ class App extends React.Component<{}, TokenState> {
                     {/* <Sidebar /> */}
                     {this.viewConductor()}
                 </Router>
+
+                <Logout clearLocalStorage={this.clearLocalStorage}/>
 
                 <Footer />
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './auth.css';
 import Login from './AuthCrud/Login';
-import Logout from './AuthCrud/Logout';
+// import Logout from './AuthCrud/Logout';
 import Register from './AuthCrud/Register';
 
 type SessionProps = {
@@ -22,7 +22,7 @@ class Auth extends React.Component<SessionProps> {
                 <Register /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />
 
                 <br />
-                <Logout clearLocalStorage={this.props.clearLocalStorage} />
+                {/* <Logout clearLocalStorage={this.props.clearLocalStorage} /> */}
             </div>
         )
     }

@@ -27,18 +27,18 @@ class Login extends React.Component<SessionProps, LoginState> {
         e.preventDefault();
         console.log('Login Submitted!')
 
-        fetch(`https://localhost:4000/user/login`, {
+        fetch(`http://localhost:4000/user/login`, {
             method: 'POST',
             body: JSON.stringify({
                 user: {
-                    username: '',
-                    password: '',
+                    username: this.state.username,
+                    password: this.state.password,
                     // role: this.state.role,
                 }
             }),
             headers: new Headers({
                 'Content-Type': 'application/json'
-            })
+            })   
         })
         .then(res => res.json())
         .then(data => {
@@ -63,11 +63,11 @@ class Login extends React.Component<SessionProps, LoginState> {
                     <h2>Login</h2>
                     <label htmlFor='username'>Username:</label>
                     <br/>
-                    <input type='type' id='username' value={this.state.username} onChange={(e) => this.setState({username: e.target.value})} />  
+                    <input type='type' id='usernameLogin' value={this.state.username} onChange={(e) => this.setState({username: e.target.value})} />  
                     <br/>
                     <label htmlFor='password'>Password:</label>
                     <br/>
-                    <input type='password' id='password' value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} />
+                    <input type='password' id='passwordLogin' value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} />
                     <br/>
                     <button type='submit' id='login' onClick={this.handleSubmit}>Login</button>
                 </form>

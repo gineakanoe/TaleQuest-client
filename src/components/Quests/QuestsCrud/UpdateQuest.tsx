@@ -1,5 +1,9 @@
 import React from 'react';
 
+type TokenProps = {
+    token: string | undefined | null,
+}
+
 type QuestUpdate = {
     entry: string,
     type: string,
@@ -7,9 +11,9 @@ type QuestUpdate = {
     sessionToken: string,
 }
 
-class UpdateQuest extends React.Component<{}, QuestUpdate> {
+class UpdateQuest extends React.Component<TokenProps, QuestUpdate> {
 
-    constructor(props: {}) {
+    constructor(props: TokenProps) {
         super(props)
         this.state = {
             entry: '',
@@ -30,7 +34,7 @@ class UpdateQuest extends React.Component<{}, QuestUpdate> {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.state.sessionToken}`
+                'Authorization': `Bearer ${this.props.token}`
             })
         })
         .then(res => res.json())

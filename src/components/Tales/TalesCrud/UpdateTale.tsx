@@ -1,5 +1,9 @@
 import React from 'react';
 
+type TokenProps = {
+    token: string | undefined | null,
+}
+
 type TaleUpdate = {
     entry: string,
     genre: string,
@@ -7,9 +11,9 @@ type TaleUpdate = {
     sessionToken?: string,
 }
 
-class UpdateTale extends React.Component<{}, TaleUpdate> {
+class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
 
-    constructor(props: {}) {
+    constructor(props: TokenProps) {
         super(props)
         this.state = {
             entry: '',
@@ -34,7 +38,7 @@ class UpdateTale extends React.Component<{}, TaleUpdate> {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.state.sessionToken}`
+                'Authorization': `Bearer ${this.props.token}`
             })
         })
         .then(res => res.json())

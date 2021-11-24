@@ -1,6 +1,18 @@
 import React from 'react';
 
-class GetQuest extends React.Component {
+type TokenProps = {
+    token: string | undefined | null,
+}
+
+class GetQuest extends React.Component<TokenProps, {}> {
+
+    constructor(props: TokenProps) {
+        super(props)
+        this.state = 
+        {
+
+        }
+    }
 
     render() {
         return(

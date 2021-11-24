@@ -1,21 +1,24 @@
 import React from "react";
+import { Token } from "typescript";
+
+type TokenProps = {
+    token: string | undefined | null,
+}
 
 type TaleCreate = {
     entry: string,
     genre: string,
     keywords: string,
-    sessionToken?: string,
 }
 
-class CreateTale extends React.Component<{}, TaleCreate> {
+class CreateTale extends React.Component<TokenProps, TaleCreate> {
 
-    constructor(props: {}) {
+    constructor(props: TokenProps) {
         super(props)
         this.state = {
             entry: '',
             genre: '',
             keywords: '',
-            sessionToken: '',
         }
     }
 
@@ -34,7 +37,7 @@ class CreateTale extends React.Component<{}, TaleCreate> {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.state.sessionToken}`
+                'Authorization': `Bearer ${this.props.token}`
             })
         })
         .then(res => res.json())

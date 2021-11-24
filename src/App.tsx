@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
 import Header from './components/Site/Header';
-import Sidebar from './components/Site/Sidebar';
+import Home from './components/Site/Home';
 import Footer from './components/Site/Footer';
 import Auth from './components/Auth/Auth';
 import Logout from './components/Auth/AuthCrud/Logout';
@@ -66,10 +66,33 @@ class App extends React.Component<{}, TokenState> {
     viewConductor = () => {
         return(
             this.state.sessionToken !== undefined ? 
-            <Sidebar /*userRole={this.state.role} sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage}*/ /> : 
+            <Home token={this.state.sessionToken} /> : 
             <Auth /*updateRole={this.updateRole}*/ updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage} />
         )
     }
+
+    render() {
+        return(
+            <div className="App">
+                <Header />
+            
+                <Heading title='Welcome to TaleQuest'></Heading>
+                <HeadingWithContent>Pull up a chair to the fire and jot down some mythical dreams!</HeadingWithContent>
+                
+                <Router>
+                    {/* <Sidebar /> */}
+                    {this.viewConductor()}
+                </Router>
+
+                <Logout clearLocalStorage={this.clearLocalStorage}/>
+
+                <Footer />
+        </div>
+        )
+    }
+}
+
+export default App;
 
 
 // App: React.FunctionComponent = () => {
@@ -92,26 +115,3 @@ class App extends React.Component<{}, TokenState> {
 //         </div>
 //     );
 // }
-
-    render() {
-        return(
-            <div className="App">
-                <Header />
-            
-                <Heading title='Welcome to TaleQuest'></Heading>
-                <HeadingWithContent>Pull up a chair to the fire and jot down some mythical dreams!</HeadingWithContent>
-
-                <Router>
-                    {/* <Sidebar /> */}
-                    {this.viewConductor()}
-                </Router>
-
-                <Logout clearLocalStorage={this.clearLocalStorage}/>
-
-                <Footer />
-        </div>
-        )
-    }
-}
-
-export default App;

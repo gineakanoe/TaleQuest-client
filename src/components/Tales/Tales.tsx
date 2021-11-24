@@ -5,20 +5,31 @@ import DeleteTale from './TalesCrud/DeleteTale';
 import GetTale from './TalesCrud/GetTale';
 import UpdateTale from './TalesCrud/UpdateTale';
 
-class Tales extends React.Component {
+type TokenProps = {
+    token: string | undefined | null,
+}
+class Tales extends React.Component<TokenProps, {}> {
+
+    constructor(props: TokenProps) {
+        super(props)
+        this.state = 
+        {
+
+        }
+    }
 
     render() {
         return(
             <div>
                 Hello World of Tales!
 
-                <CreateTale />
+                <CreateTale token={this.props.token}/>
 
-                <DeleteTale />
+                <DeleteTale token={this.props.token}/>
 
-                <GetTale />
+                <GetTale token={this.props.token}/>
 
-                <UpdateTale />
+                <UpdateTale token={this.props.token}/>
                 
             </div>
         )

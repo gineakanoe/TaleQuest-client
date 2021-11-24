@@ -1,6 +1,10 @@
 import React from 'react';
 
-class DeleteTale extends React.Component {
+type TokenProps = {
+    token: string | undefined | null,
+}
+
+class DeleteTale extends React.Component<TokenProps, {}> {
 
     render() {
         return(

@@ -1,6 +1,10 @@
 import React from 'react';
 
-class GetTale extends React.Component{
+type TokenProps = {
+    token: string | undefined | null,
+}
+
+class GetTale extends React.Component<TokenProps, {}> {
 
     render() {
         return(

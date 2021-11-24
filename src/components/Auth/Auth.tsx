@@ -10,7 +10,7 @@ type SessionProps = {
     clearLocalStorage: () => void,
 }
 
-class Auth extends React.Component<SessionProps> {
+class Auth extends React.Component<SessionProps, {}> {
 
 
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+// import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 
 type TokenProps = {
@@ -70,7 +70,7 @@ class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
             <div>
                 {/* <button onClick={this.toggleModal}>Edit</button>
                 <Modal modalOpen={false}> */}
-                <Form>
+                <form>
                     <h2>Update Tale</h2>
                     <label htmlFor='title'>Title:</label>
                     <br/>
@@ -89,7 +89,7 @@ class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
                     <textarea id='entry' value={this.state.entry} onChange={(e) => this.setState({entry: e.target.value})} />
                     <br/>
                     <button type='submit' id='createTale' onClick={this.handleSubmit}>Submit</button>
-                </Form>
+                </form>
             {/* </Modal> */}
             </div>
         )

@@ -1,5 +1,7 @@
 import React from 'react';
-import MapTale from './MapTale';
+import { CardGroup, Card, Button } from 'reactstrap';
+// import MapTale from './MapTale';
+
 
 type TokenProps = {
     token: string | undefined | null,
@@ -16,6 +18,13 @@ type TaleDetails = {
     entry: string,
     genre: string,
     keywords: string,
+}
+
+type TaleProps = {
+    entry: string,
+    genre: string,
+    keywords: string,
+    tales: []
 }
 
 class GetTale extends React.Component<TokenProps, TaleGet> {
@@ -52,11 +61,36 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
         this.myTales()
     }
 
+    mapTale = (props: any) => {
+        // console.log(props);
+    
+        return(
+            props.tales.map((tales: TaleProps, index: number) => {
+                return(
+                    <div>
+                        <CardGroup key={index}>
+                                <Card className={'card'}>
+                                    <h3><u>Title Goes Here</u></h3>
+                                    <p><b>{tales.entry}</b></p>
+                                    <p><b><i>Genre: </i></b>{tales.genre}</p>
+                                    <p><b><i>Keywords: </i></b>{tales.keywords}</p>
+                                    <Button>Update</Button>
+                                    <Button>Delete</Button>
+                                    
+                                </Card>
+                        </CardGroup>
+                    </div>
+                )
+            })
+        )
+    }
+
     render() {
         return(
             <div>
                 <h3><u>My Tales</u></h3>
-                <MapTale entry={this.state.entry} genre={this.state.genre} keywords={this.state.keywords} tales={this.state.tales} />
+                <this.mapTale entry={this.state.entry} genre={this.state.genre} keywords={this.state.keywords} tales={this.state.tales} />
+                
             </div>
         )
     }

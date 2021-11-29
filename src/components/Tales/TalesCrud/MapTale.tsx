@@ -1,5 +1,9 @@
+
+//! SHOULD BE ABLE TO DELETE
+
 import React from 'react';
-import { CardGroup, Card } from 'reactstrap';
+import { CardGroup, Card,Button } from 'reactstrap';
+
 
 type TaleProps = {
     entry: string,
@@ -21,6 +25,9 @@ const MapTale = (props: any) => {
                                 <p><b>{tales.entry}</b></p>
                                 <p><b><i>Genre: </i></b>{tales.genre}</p>
                                 <p><b><i>Keywords: </i></b>{tales.keywords}</p>
+                                <Button>Update</Button>
+                                <Button>Delete</Button>
+                                
                             </Card>
                     </CardGroup>
                 </div>

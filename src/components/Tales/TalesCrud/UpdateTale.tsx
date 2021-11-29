@@ -1,4 +1,6 @@
 import React from 'react';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+
 
 type TokenProps = {
     token: string | undefined | null,
@@ -9,6 +11,7 @@ type TaleUpdate = {
     genre: string,
     keywords: string,
     sessionToken?: string,
+    modalOpen: boolean,
 }
 
 class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
@@ -20,6 +23,7 @@ class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
             genre: '',
             keywords: '',
             sessionToken: '',
+            modalOpen: false,
         }
     }
 
@@ -28,8 +32,9 @@ class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
     }
 
     handleSubmit = (e: React.MouseEvent) => {
-        e.preventDefault();
-        fetch(`https://localhost:4000/tales/update`, {
+        // e.preventDefault();
+        console.log('An Update! An Update has been done!')
+        fetch(`https://localhost:4000/tales/update/:entryId`, {
             method: 'PUT',
             body: JSON.stringify({
                 entry: '',
@@ -53,10 +58,19 @@ class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
         .catch((err) => console.log(`[Error]: ${err}`))
     }
 
+    // //! Toggle Not Working
+    // toggleModal = () => {
+    //     this.setState({
+    //         modalOpen: !false
+    //     })
+    // }
+
     render() {
         return(
             <div>
-                <form>
+                {/* <button onClick={this.toggleModal}>Edit</button>
+                <Modal modalOpen={false}> */}
+                <Form>
                     <h2>Update Tale</h2>
                     <label htmlFor='title'>Title:</label>
                     <br/>
@@ -75,7 +89,8 @@ class UpdateTale extends React.Component<TokenProps, TaleUpdate> {
                     <textarea id='entry' value={this.state.entry} onChange={(e) => this.setState({entry: e.target.value})} />
                     <br/>
                     <button type='submit' id='createTale' onClick={this.handleSubmit}>Submit</button>
-                </form>
+                </Form>
+            {/* </Modal> */}
             </div>
         )
     }

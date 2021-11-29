@@ -22,7 +22,7 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
     }
 
     componentDidMount() {
-
+      
     }
 
     handleSubmit = (e: React.MouseEvent) => {

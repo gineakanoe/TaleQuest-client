@@ -26,7 +26,7 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
     }
 
     handleSubmit = (e: React.MouseEvent) => {
-        e.preventDefault();
+        // e.preventDefault();
         console.log('submitted createTale event');
         fetch(`http://localhost:4000/tales/create`, {
             method: 'POST',

@@ -23,7 +23,7 @@ class CreateQuest extends React.Component<TokenProps, QuestCreate> {
     }
 
     handleSubmit = (e: React.MouseEvent) => {
-        e.preventDefault();
+        // e.preventDefault();
         console.log('submitted createQuest event');
         // fetch(`${APIURL}/quests/create`, {
         fetch(`http://localhost:4000/quests/create`, {        

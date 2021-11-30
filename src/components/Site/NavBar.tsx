@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 // // import { Route, Routes, Link } from 'react-router-dom';
 // // import Home from './Home';
 // import Logout from '../Auth/AuthCrud/Logout';
@@ -7,7 +7,13 @@
 //     sessionToken: string | undefined | null,
 //     // role: string | null,
 // }
-
+export default function NavBar() {
+    return(
+        <div>
+            
+        </div>
+    )
+}
 // export default class NavBar extends React.Component<{}, TokenState> {
 //     constructor(props: TokenState) {
 //         super(props)

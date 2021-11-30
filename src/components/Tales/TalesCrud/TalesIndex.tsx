@@ -1,5 +1,5 @@
 import React from 'react';
-// import APIURL from '../../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 import { CardGroup, Card, Button } from 'reactstrap';
 
 type TokenProps = {
@@ -41,8 +41,8 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
     }
 
     myTales = () => {
-        // fetch(`${APIURL}/tales/mine`, {
-        fetch(`http://localhost:4000/tales/mine`, {
+        fetch(`${APIURL}/tales/mine`, {
+        // fetch(`http://localhost:4000/tales/mine`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -68,8 +68,8 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
     deleteTale = (id: any) => {
         alert('Entry Deleted');
         // console.log(id);
-        // fetch(`${APIURL}/tales/delete/${id}`, {
-        fetch(`http://localhost:4000/tales/delete/${id}`, {
+        fetch(`${APIURL}/tales/delete/${id}`, {
+        // fetch(`http://localhost:4000/tales/delete/${id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -81,8 +81,8 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
 
     updateTale = (id: any) => {
         alert('An Update! An Update has been done!')
-        // fetch(`${APIURL}/tales/update/${id}`, {
-        fetch(`http://localhost:4000/tales/update/${id}`, {
+        fetch(`${APIURL}/tales/update/${id}`, {
+        // fetch(`http://localhost:4000/tales/update/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 tales: {

@@ -1,5 +1,5 @@
 import React from "react";
-// import APIURL from '../../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 
 type TokenProps = {
     token: string | undefined | null,
@@ -27,8 +27,8 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
     handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
         console.log('submitted createTale event');
-        // fetch(`${APIURL}/tales/create`, {
-        fetch(`http://localhost:4000/tales/create`, {
+        fetch(`${APIURL}/tales/create`, {
+        // fetch(`http://localhost:4000/tales/create`, {
             method: 'POST',
             body: JSON.stringify({
                 tales: {

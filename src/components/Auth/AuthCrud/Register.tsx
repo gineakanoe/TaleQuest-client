@@ -1,5 +1,5 @@
 import React from 'react';
-// import APIURL from '../../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 
 type RegisterState = {
     firstName: string,
@@ -36,8 +36,8 @@ class Register extends React.Component<SessionProps, RegisterState> {
         e.preventDefault();
         console.log('Register Submitted!')
 
-        // fetch(`${APIURL}/auth/register`, {
-        fetch(`http://localhost:4000/user/register`, {
+        fetch(`${APIURL}/auth/register`, {
+        // fetch(`http://localhost:4000/user/register`, {
             method: 'POST',
             body: JSON.stringify({
                 user: {

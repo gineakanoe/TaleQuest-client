@@ -1,5 +1,5 @@
 import React from 'react';
-// import APIURL from '../../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 import { CardGroup, Card, Button } from 'reactstrap';
 
 type TokenProps = {
@@ -38,8 +38,8 @@ class GetQuest extends React.Component<TokenProps, QuestGet> {
     }
 
     myQuests = () => {
-        // fetch(`${APIURL}/quests/mine`, {
-        fetch(`http://localhost:4000/quests/mine`, {
+        fetch(`${APIURL}/quests/mine`, {
+        // fetch(`http://localhost:4000/quests/mine`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -63,8 +63,8 @@ class GetQuest extends React.Component<TokenProps, QuestGet> {
 
     deleteQuest = (id: any) => {
         alert('Quest Deleted');
-        // fetch(`${APIURL}/quests/delete/${id}`, {
-        fetch(`http://localhost:4000/quests/delete/${id}`, {
+        fetch(`${APIURL}/quests/delete/${id}`, {
+        // fetch(`http://localhost:4000/quests/delete/${id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -76,8 +76,8 @@ class GetQuest extends React.Component<TokenProps, QuestGet> {
 
     updateQuest = (id: any) => {
         alert('An Update! An Update has been done!')
-        // fetch(`${APIURL}/quests/update/${id}`, {
-        fetch(`http://localhost:4000/quests/update/${id}`, {
+        fetch(`${APIURL}/quests/update/${id}`, {
+        // fetch(`http://localhost:4000/quests/update/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 quests: {

@@ -1,5 +1,5 @@
 import React from 'react';
-// import APIURL from '../../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 
 type TokenProps = {
     token: string | undefined | null,
@@ -25,8 +25,8 @@ class CreateQuest extends React.Component<TokenProps, QuestCreate> {
     handleSubmit = (e: React.MouseEvent) => {
         // e.preventDefault();
         console.log('submitted createQuest event');
-        // fetch(`${APIURL}/quests/create`, {
-        fetch(`http://localhost:4000/quests/create`, {        
+        fetch(`${APIURL}/quests/create`, {
+        // fetch(`http://localhost:4000/quests/create`, {        
             method: 'POST',
             body: JSON.stringify({
                 quests: {

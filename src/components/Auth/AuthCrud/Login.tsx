@@ -1,5 +1,5 @@
 import React from 'react';
-// import APIURL from '../../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 
 type LoginState = {
     username: string,
@@ -28,8 +28,8 @@ class Login extends React.Component<SessionProps, LoginState> {
         e.preventDefault();
         console.log('Login Submitted!')
 
-        // fetch(`${APIURL}/auth/login`, {
-        fetch(`http://localhost:4000/user/login`, {
+        fetch(`${APIURL}/auth/login`, {
+        // fetch(`http://localhost:4000/user/login`, {
             method: 'POST',
             body: JSON.stringify({
                 user: {

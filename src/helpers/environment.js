@@ -5,7 +5,9 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:4000';
         break;
     case 'gkm-talequest-client.herokuapp.com':
-        APIURL = 'https://gkm-talequestapi.herokuapp.com'
+        APIURL = 'https://gkm-talequest-server.herokuapp.com';
+        break;
+    default:
 }
 
 export default APIURL;

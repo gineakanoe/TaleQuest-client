@@ -1,13 +1,13 @@
 import React, { ReactElement, ReactNode } from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
+// import NavBar from './components/Site/NavBar';
 import Header from './components/Site/Header';
 import Home from './components/Site/Home';
 import Footer from './components/Site/Footer';
 import Auth from './components/Auth/Auth';
 import Logout from './components/Auth/AuthCrud/Logout';
-// import Tales from './components/Tales/Tales';
-// import Quests from './components/Quests/Quests';
+// import APIURL from './helpers/environment';
 
 function Heading({title}: {title: string}) {
     return <h1>{title}</h1>
@@ -74,6 +74,7 @@ class App extends React.Component<{}, TokenState> {
     render() {
         return(
             <div className="App">
+                {/* <NavBar /> */}
                 <Header />
             
                 <Heading title='Welcome to TaleQuest'></Heading>

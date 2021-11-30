@@ -1,8 +1,5 @@
 import React from 'react';
 import { CardGroup, Card, Button } from 'reactstrap';
-// import UpdateTale from './UpdateTale';
-// import MapTale from './MapTale';
-
 
 type TokenProps = {
     token: string | undefined | null,
@@ -17,18 +14,11 @@ type TaleGet = {
     update: boolean,
 }
 
+//? TaleDetails is for 'mapTale'
 type TaleDetails = {
     entry: string,
     genre: string,
     keywords: string,
-    id: string,
-}
-
-type TaleProps = {
-    entry: string,
-    genre: string,
-    keywords: string,
-    // tales: [],
     id: string,
 }
 
@@ -61,7 +51,7 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
                 tales: data,
                 id: data.id,
             })
-            console.log(data[0].id);
+            // console.log(data[0].id);
         })
         .catch((err) => console.log(`[Error]: ${err}`))
     }
@@ -71,8 +61,8 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
     } 
 
     deleteTale = (id: any) => {
-        console.log('delete called');
-        console.log(id);
+        alert('Entry Deleted');
+        // console.log(id);
         fetch(`http://localhost:4000/tales/delete/${id}`, {
             method: 'DELETE',
             headers: new Headers({
@@ -84,8 +74,7 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
     }
 
     updateTale = (id: any) => {
-        // e.preventDefault();
-        console.log('An Update! An Update has been done!')
+        alert('An Update! An Update has been done!')
         fetch(`http://localhost:4000/tales/update/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -113,9 +102,9 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
     }  
 
     mapTale = (props: any) => {
-        console.log(props);
+        // console.log(props);
         return(
-            props.tales.map((tales: TaleProps, index: number) => {
+            props.tales.map((tales: TaleDetails, index: number) => {
                 return(
                     <div>
                         <CardGroup key={index}>
@@ -124,7 +113,7 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
                                     <p><b>{tales.entry}</b></p>
                                     <p><b><i>Genre: </i></b>{tales.genre}</p>
                                     <p><b><i>Keywords: </i></b>{tales.keywords}</p>
-                                    <p><b><i>id: </i></b>{tales.id}</p>
+                                    {/* <p><b><i>id: </i></b>{tales.id}</p> */}
                                     <Button onClick={() => this.setState({update: !this.state.update})}>Update</Button>
                                     <Button onClick={() => this.deleteTale(tales.id)} >Delete</Button>   
                                     {this.state.update ? (
@@ -149,10 +138,8 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
                                             <br/>
                                             <button type='submit'>Submit</button>
                                         </form>
-                                    </div>
-                                    ): null
-
-                                    }
+                                     </div>
+                                    ): null }
                                 </Card>
                         </CardGroup>
                     </div>

@@ -21,12 +21,8 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
         }
     }
 
-    componentDidMount() {
-      
-    }
-
     handleSubmit = (e: React.MouseEvent) => {
-        // e.preventDefault();
+        e.preventDefault();
         console.log('submitted createTale event');
         fetch(`http://localhost:4000/tales/create`, {
             method: 'POST',
@@ -45,11 +41,7 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
         .then(res => res.json())
         .then((data) => {
             console.log(data);
-            // this.setState({
-            //     entry: data.entry,
-            //     genre: data.genre,
-            //     keywords: data.keywords,
-            // })
+            alert('A Whole New Tale!  How Magical!');
         })
         .catch((err) => console.log(`[Error]: ${err}`))
     }

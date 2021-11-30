@@ -8,7 +8,6 @@ type QuestCreate = {
     entry: string,
     type: string,
     timeLimit: string,
-    sessionToken: string,
 }
 
 class CreateQuest extends React.Component<TokenProps, QuestCreate> {
@@ -19,18 +18,20 @@ class CreateQuest extends React.Component<TokenProps, QuestCreate> {
             entry: '',
             type: '',
             timeLimit: '',
-            sessionToken: '',
         }
     }
 
     handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
+        console.log('submitted createQuest event');
         fetch(`http://localhost:4000/quests/create`, {
             method: 'POST',
             body: JSON.stringify({
-                entry: '',
-                type: '',
-                timeLimit: '',
+                quests: {
+                    entry: this.state.entry,
+                    type: this.state.type,
+                    timeLimit: this.state.timeLimit,
+                }
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -40,11 +41,7 @@ class CreateQuest extends React.Component<TokenProps, QuestCreate> {
         .then(res => res.json())
         .then((data) => {
             console.log(data);
-            this.setState({
-                entry: data.entry,
-                type: data.type,
-                timeLimit: data.timeLimit,
-            })
+            alert('A Whole New Quest!  Get Your Pens Ready!');
         })
         .catch((err) => console.log(`[Error}: ${err}]`))
     }

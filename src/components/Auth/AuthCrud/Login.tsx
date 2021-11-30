@@ -28,7 +28,7 @@ class Login extends React.Component<SessionProps, LoginState> {
         e.preventDefault();
         console.log('Login Submitted!')
 
-        fetch(`${APIURL}/auth/login`, {
+        fetch(`${APIURL}/user/login`, {
         // fetch(`http://localhost:4000/user/login`, {
             method: 'POST',
             body: JSON.stringify({

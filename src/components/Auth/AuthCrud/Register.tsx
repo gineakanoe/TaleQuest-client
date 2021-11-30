@@ -36,7 +36,7 @@ class Register extends React.Component<SessionProps, RegisterState> {
         e.preventDefault();
         console.log('Register Submitted!')
 
-        fetch(`${APIURL}/auth/register`, {
+        fetch(`${APIURL}/user/register`, {
         // fetch(`http://localhost:4000/user/register`, {
             method: 'POST',
             body: JSON.stringify({

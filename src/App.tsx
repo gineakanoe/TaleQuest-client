@@ -74,20 +74,24 @@ class App extends React.Component<{}, TokenState> {
     render() {
         return(
             <div className="App">
-                {/* <NavBar /> */}
-                <Header />
-            
-                <Heading title='Welcome to TaleQuest'></Heading>
-                <HeadingWithContent>Pull up a chair to the fire and jot down some mythical dreams!</HeadingWithContent>
+                {/* <div className='stars' >
+                <div className='twinkling'> */}
+                    {/* <NavBar /> */}
+                    <Header />
                 
-                <Router>
-                    {/* <Sidebar /> */}
-                    {this.viewConductor()}
-                </Router>
+                    <Heading title='Welcome to TaleQuest'></Heading>
+                    <HeadingWithContent>Pull up a chair to the fire and jot down some mythical dreams!</HeadingWithContent>
+                    
+                    <Router>
+                        {/* <Sidebar /> */}
+                        {this.viewConductor()}
+                    </Router>
 
-                <Logout clearLocalStorage={this.clearLocalStorage}/>
+                    <Logout clearLocalStorage={this.clearLocalStorage}/>
 
-                <Footer />
+                    <Footer />
+                {/* </div>
+                </div> */}
         </div>
         )
     }

@@ -67,6 +67,7 @@ class CreateQuest extends React.Component<TokenProps, QuestCreate> {
                     <br/>
                     <button type='submit' id='createQuest' onClick={this.handleSubmit}>Submit</button>
                 </form>
+                <hr />
             </div>
         )
     }

@@ -1,7 +1,9 @@
 .card {
     margin: 30px;
+    margin-left: 13%;
+    margin-right: 13%;
     padding: 20px;
-    border: 3px solid green;
+    border: 3px solid rgb(112, 111, 111);
     background: linear-gradient(transparent 0%, darkgray 20%, transparent 85%);
 }
 

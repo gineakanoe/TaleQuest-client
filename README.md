@@ -31,7 +31,7 @@ I want something that encourages story-telling.  In this app, users will be able
     • DELETE/tales/delete/:id   	=> Deletes tale
 
 ### Quests
-    • GET/quests/mine	           	=> Get all quests
+    • GET/quests/mine               => Get all quests
     • POST /quests/create        	=> Create new quest
     • PUT/quests/update/:entryId    => Update quest
     • DELETE/quests/delete/:id  	=> Deletes quest
@@ -63,6 +63,7 @@ I want something that encourages story-telling.  In this app, users will be able
 # Project Built with Create React App & TypeScript Template
 
 [Create React App](https://github.com/facebook/create-react-app)
+
 [TypeScript](https://www.typescriptlang.org/)
 
 ## Scripts

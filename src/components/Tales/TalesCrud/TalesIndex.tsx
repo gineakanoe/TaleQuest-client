@@ -119,7 +119,7 @@ class GetTale extends React.Component<TokenProps, TaleGet> {
                         <CardGroup key={index}>
                                 <Card className={'card'}>
                                     <h3><u>{tales.title}</u></h3>
-                                    <p><b>{tales.entry}</b></p>
+                                    <h4><b>{tales.entry}</b></h4>
                                     <p><b><i>Genre: </i></b>{tales.genre}</p>
                                     <p><b><i>Keywords: </i></b>{tales.keywords}</p>
                                     {/* <p><b><i>id: </i></b>{tales.id}</p> */}

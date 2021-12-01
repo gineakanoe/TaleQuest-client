@@ -21,4 +21,72 @@ body {
   background-color: grey;
   font-family: 'Pacifico', serif;
   letter-spacing: 2px;
+  color: rgb(63, 9, 9);
+}
+
+input, textarea {
+  font-size: 23px;
+  color: rgb(250, 118, 118);
+}
+
+
+input:focus, textarea:focus {
+  outline: none;
+  background-color: transparent;
+  color: rgb(250, 118, 118);
+  
+}
+
+label {
+  font-size: 23px;
+}
+
+/* label:after{
+  content: "*" ;
+  color: darkred;  
+} */
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 25px;
+  letter-spacing: 5px;
+  color: rgb(43, 42, 42);
+}
+
+.talequest {
+  color: rgb(43, 42, 42);
+  margin-left: 10%; 
+  margin-right: 10%;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid rgb(63, 9, 9);
+  border-radius: 15px;
+  color: rgb(63, 9, 9);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+  color: rgb(250, 118, 118);
+  border: 2px solid rgb(250, 118, 118);
+  background-color: lightsteelblue;
+  
 }

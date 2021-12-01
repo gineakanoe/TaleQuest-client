@@ -65,11 +65,11 @@ class Login extends React.Component<SessionProps, LoginState> {
                     <h2>Login</h2>
                     <label htmlFor='username'>Username:</label>
                     <br/>
-                    <input type='type' id='usernameLogin' value={this.state.username} onChange={(e) => this.setState({username: e.target.value})} />  
+                    <input type='type' id='usernameLogin' value={this.state.username} onChange={(e) => this.setState({username: e.target.value})} required/>  
                     <br/>
                     <label htmlFor='password'>Password:</label>
                     <br/>
-                    <input type='password' id='passwordLogin' value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} />
+                    <input type='password' id='passwordLogin' value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} required/>
                     <br/>
                     <button type='submit' id='login' onClick={this.handleSubmit}>Login</button>
                 </form>

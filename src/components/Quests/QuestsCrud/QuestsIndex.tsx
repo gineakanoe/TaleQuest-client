@@ -110,7 +110,7 @@ class GetQuest extends React.Component<TokenProps, QuestGet> {
                     <div>
                         <CardGroup key={index}>
                                 <Card className={'card'}>
-                                    <p><b>{quests.entry}</b></p>
+                                    <h4><b>{quests.entry}</b></h4>
                                     <p><b><i>Type: </i></b>{quests.type}</p>
                                     <p><b><i>Time Limit: </i></b>{quests.timeLimit}</p>
                                     <Button onClick={() => this.setState({update: !this.state.update})}>Update</Button>

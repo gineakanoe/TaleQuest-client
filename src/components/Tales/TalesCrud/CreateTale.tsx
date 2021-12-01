@@ -55,7 +55,7 @@ class CreateTale extends React.Component<TokenProps, TaleCreate> {
         return(
             <div>
                 <form>
-                    <h2>A New Tale</h2>
+                    <h3><u>A New Tale</u></h3>
                     <label htmlFor='title'>Title:</label>
                     <br/>
                     <input type='type' id='title' value={this.state.title} onChange={(e) => this.setState({title: e.target.value})}/>  

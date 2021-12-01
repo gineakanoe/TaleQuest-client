@@ -25,8 +25,8 @@ class Sidebar extends React.Component<TokenProps, {}> {
             <div>
                 <ul id='sidebarUl'>
                     {/* <li><Link to='/'>Home</Link></li> */}
-                    <li><Link to='/tales'>Tales</Link></li>
-                    <li><Link to='/quests'>Quests</Link></li>
+                    <li><Link to='/tales' className='link-li'>Tales</Link></li>
+                    <li><Link to='/quests' className='link-li'>Quests</Link></li>
                 </ul>
             </div>
             <div>

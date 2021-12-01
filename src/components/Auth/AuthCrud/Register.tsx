@@ -64,7 +64,7 @@ class Register extends React.Component<SessionProps, RegisterState> {
             // }
         })
         .catch((err) => {
-            console.log(`[Error}: ${err}]`);
+            alert(`[Error}: ${err}]`);
             this.props.clearLocalStorage();
         })
     }

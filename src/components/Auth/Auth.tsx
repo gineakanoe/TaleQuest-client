@@ -24,7 +24,7 @@ class Auth extends React.Component<SessionProps, loginToggle> {
     render() {
         return(
             <div>
-                <Button onClick={() => this.setState({login: !this.state.login})}>Login/Register</Button>
+                <Button id='toggle' onClick={() => this.setState({login: !this.state.login})}>Login/Register</Button>
                 {this.state.login ? 
                     (<Register /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />) :
                     (<Login /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />)

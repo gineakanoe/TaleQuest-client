@@ -52,7 +52,7 @@ class CreateQuest extends React.Component<TokenProps, QuestCreate> {
         return(
             <div>
                 <form>
-                    <h2>A New Quest</h2>
+                    <h3><u>A New Quest</u></h3>
                     <label htmlFor='type'>Type:</label>
                     <br/>
                     <input type='type' id='type' value={this.state.type} onChange={(e) => this.setState({type: e.target.value})} />  

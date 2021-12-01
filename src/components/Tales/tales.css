@@ -1,7 +1,13 @@
 .card {
     margin: 30px;
-    padding: 20px;
+    padding: 5px;
     border: 3px solid purple;
+    background: linear-gradient(transparent 0%, darkgray 20%, transparent 85%);
+}
+
+.card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -4px, 0);
 }
 
 button {

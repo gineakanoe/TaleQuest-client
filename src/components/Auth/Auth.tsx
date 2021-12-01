@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import './auth.css';
 import Login from './AuthCrud/Login';
 import Register from './AuthCrud/Register';
@@ -9,13 +10,25 @@ type SessionProps = {
     clearLocalStorage: () => void,
 }
 
-class Auth extends React.Component<SessionProps, {}> {
+type loginToggle = {
+    login: boolean,
+}
+
+class Auth extends React.Component<SessionProps, loginToggle> {
+    constructor(props: SessionProps) {
+        super(props)
+        this.state = {
+            login: false,
+        }
+    }
     render() {
         return(
             <div>
-                <Login /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />
-                <br />
-                <Register /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />
+                <Button onClick={() => this.setState({login: !this.state.login})}>Login/Register</Button>
+                {this.state.login ? 
+                    (<Register /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />) :
+                    (<Login /*updateRole={this.props.updateRole}*/ updateLocalStorage={this.props.updateLocalStorage} clearLocalStorage={this.props.clearLocalStorage} />)
+                }  
             </div>
         )
     }

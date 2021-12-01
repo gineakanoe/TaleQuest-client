@@ -22,7 +22,7 @@ I want something that encourages story-telling.  In this app, users will be able
 
 ### Users 
     • POST/user/register   	    	=> Registers new user account
-    • POST/user/login	    	    => Logs in a user
+    • POST/user/login               => Logs in a user
 
 ### Tales
     • GET/tales/mine                => Get all user's tales
